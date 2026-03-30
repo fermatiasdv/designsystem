@@ -1,0 +1,17 @@
+{
+  "name": "designsystem",
+  "version": "1.0.0",
+  "description": "it s a custom design system",
+  "license": "MIT",
+  "author": "Fernando del Valle",
+  "type": "module",
+  "main": "index.js",
+  "workspaces": ["apps/*", "packages/*"],
+  "scripts": {
+    "dev": "turbo run dev",
+    "build": "turbo run build"
+  },
+  "devDependencies": {
+    "turbo": "^latest"
+  }
+}
