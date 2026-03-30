@@ -1,0 +1,14 @@
+{
+  "name": "@repo/primitives",
+  "version": "1.0.0",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "type": "module",
+  "scripts": {
+    "dev": "tsc --watch",
+    "build": "tsc"
+  },
+  "devDependencies": {
+    "typescript": "~5.9.3"
+  }
+}

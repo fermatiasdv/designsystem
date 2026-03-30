@@ -12,6 +12,6 @@
     "build": "turbo run build"
   },
   "devDependencies": {
-    "turbo": "^latest"
+    "turbo": "latest"
   }
 }
