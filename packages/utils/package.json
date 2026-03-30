@@ -4,12 +4,24 @@
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
   "type": "module",
+  "files": [
+    "dist"
+  ],
+  "exports": {
+    ".": {
+      "import": "./dist/index.js",
+      "types": "./dist/index.d.ts"
+    }
+  },
+  "publishConfig": {
+    "access": "public"
+  },
   "scripts": {
     "dev": "tsc --watch",
     "build": "tsc"
   },
   "dependencies": {
-    "@repo/primitives": "*"
+    "@repo/primitives": "^1.0.0"
   },
   "devDependencies": {
     "@types/react": "^19.2.14",

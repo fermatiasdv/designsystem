@@ -13,7 +13,8 @@
   ],
   "scripts": {
     "dev": "turbo run dev",
-    "build": "turbo run build"
+    "build": "turbo run build",
+    "publish:packages": "npm run build && npm publish -w packages/primitives -w packages/utils -w packages/button-test -w packages/ui"
   },
   "devDependencies": {
     "esbuild": "^0.24.0",
