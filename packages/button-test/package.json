@@ -1,5 +1,5 @@
 {
-  "name": "@repo/ui",
+  "name": "@repo/button-test",
   "version": "1.0.0",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
@@ -9,16 +9,18 @@
     "build": "vite build"
   },
   "dependencies": {
-    "@repo/button-test": "*",
-    "react": "^19.2.4",
-    "react-dom": "^19.2.4"
+    "@repo/primitives": "*",
+    "@repo/utils": "*",
+    "react": "^19.2.4"
   },
   "devDependencies": {
     "@types/react": "^19.2.14",
-    "@types/react-dom": "^19.2.3",
     "@vitejs/plugin-react": "^6.0.1",
     "typescript": "~5.9.3",
     "vite": "^8.0.3",
     "vite-plugin-dts": "^4.5.4"
+  },
+  "peerDependencies": {
+    "react": "^19.2.4"
   }
 }

@@ -6,12 +6,27 @@
   "author": "Fernando del Valle",
   "type": "module",
   "main": "index.js",
-  "workspaces": ["apps/*", "packages/*"],
+  "packageManager": "npm@11.9.0",
+  "workspaces": [
+    "apps/*",
+    "packages/*"
+  ],
   "scripts": {
     "dev": "turbo run dev",
     "build": "turbo run build"
   },
   "devDependencies": {
+    "esbuild": "^0.24.0",
+    "storybook": "8.6.18",
     "turbo": "latest"
+  },
+  "overrides": {
+    "storybook": "8.6.18",
+    "@storybook/core": "8.6.18",
+    "@storybook/react-vite": "8.6.18",
+    "@storybook/react": "8.6.18",
+    "@storybook/addon-essentials": "8.6.18",
+    "@storybook/addon-interactions": "8.6.18",
+    "@storybook/test": "8.6.18"
   }
 }
