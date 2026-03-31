@@ -1,5 +1,5 @@
 import type { CSSProperties } from 'react'
-import { fontSize, fontWeight, fontFamily } from '@repo/primitives'
+import { fontSize, fontWeight, fontFamily } from '@designsystemfdv/primitives'
 
 type FontSizeKey   = keyof typeof fontSize
 type FontWeightKey = keyof typeof fontWeight

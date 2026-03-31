@@ -1,5 +1,5 @@
 {
-  "name": "@repo/storybook",
+  "name": "@designsystemfdv/storybook",
   "version": "0.0.0",
   "private": true,
   "type": "module",
@@ -8,7 +8,7 @@
     "build": "npx storybook build"
   },
   "dependencies": {
-    "@repo/ui": "*",
+    "@designsystemfdv/ui": "*",
     "react": "^19.2.4",
     "react-dom": "^19.2.4"
   },

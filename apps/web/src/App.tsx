@@ -1,4 +1,4 @@
-import { ButtonTest } from '@repo/ui'
+import { ButtonTest } from '@designsystemfdv/ui'
 
 function App() {
   return (

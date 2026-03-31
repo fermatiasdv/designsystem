@@ -1,5 +1,5 @@
 {
-  "name": "@repo/utils",
+  "name": "@designsystemfdv/utils",
   "version": "1.0.0",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
@@ -21,7 +21,7 @@
     "build": "tsc"
   },
   "dependencies": {
-    "@repo/primitives": "^1.0.0"
+    "@designsystemfdv/primitives": "^1.0.0"
   },
   "devDependencies": {
     "@types/react": "^19.2.14",

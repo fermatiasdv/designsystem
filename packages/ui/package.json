@@ -1,5 +1,5 @@
 {
-  "name": "@repo/ui",
+  "name": "@designsystemfdv/ui",
   "version": "1.0.0",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
@@ -21,7 +21,7 @@
     "build": "vite build"
   },
   "dependencies": {
-    "@repo/button-test": "^1.0.0",
+    "@designsystemfdv/button-test": "^1.0.0",
     "react": "^19.2.4",
     "react-dom": "^19.2.4"
   },

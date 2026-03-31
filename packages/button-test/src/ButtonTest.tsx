@@ -1,7 +1,7 @@
 import type { CSSProperties, ButtonHTMLAttributes } from 'react'
-import { textColor, backgroundColor, borderRadius, border } from '@repo/primitives'
-import { fontSize, fontWeight, fontFamily } from '@repo/primitives'
-import { cn } from '@repo/utils'
+import { textColor, backgroundColor, borderRadius, border } from '@designsystemfdv/primitives'
+import { fontSize, fontWeight, fontFamily } from '@designsystemfdv/primitives'
+import { cn } from '@designsystemfdv/utils'
 
 export type ButtonVariant = 'primary' | 'secondary' | 'ghost'
 export type ButtonSize    = 'sm' | 'md' | 'lg'
