@@ -14,12 +14,20 @@
   "scripts": {
     "dev": "turbo run dev",
     "build": "turbo run build",
+    "test": "turbo run test",
     "publish:packages": "npm run build && npm publish -w packages/primitives -w packages/utils -w packages/button-test -w packages/ui"
   },
   "devDependencies": {
+    "@testing-library/jest-dom": "^6.9.1",
+    "@testing-library/react": "^16.3.2",
+    "@types/react-dom": "^19.2.3",
     "esbuild": "^0.24.0",
+    "jsdom": "^29.0.1",
+    "react": "^19.2.4",
+    "react-dom": "^19.2.4",
     "storybook": "8.6.18",
-    "turbo": "latest"
+    "turbo": "latest",
+    "vitest": "^4.1.2"
   },
   "overrides": {
     "storybook": "8.6.18",
