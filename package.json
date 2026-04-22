@@ -1,5 +1,6 @@
 {
-  "name": "@fernandomatiasdv/designsystem",
+  "name": "designsystem-monorepo",
+  "private": true,
   "version": "1.0.1",
   "description": "it s a custom design system",
   "license": "MIT",

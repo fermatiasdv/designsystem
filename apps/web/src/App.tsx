@@ -1,4 +1,4 @@
-import { ButtonTest } from '@designsystemfdv/ui'
+import { ButtonTest } from '@fernandomatiasdv/designsystem'
 
 function App() {
   return (

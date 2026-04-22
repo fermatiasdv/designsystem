@@ -7,11 +7,11 @@
 info => Cleaning outputDir: [36mstorybook-static[39m
 info => Loading presets
 info => Building manager..
-info => Manager built ([38;2;181;126;229m592 ms[39m)
+info => Manager built ([38;2;181;126;229m144 ms[39m)
 info => Building preview..
 WARN No story files found for the specified pattern: [34mstories\molecules\**\*.stories.@(ts|tsx)[39m
-WARN No story files found for the specified pattern: [34mstories\organisms\**\*.stories.@(ts|tsx)[39m
 WARN No story files found for the specified pattern: [34mstories\templates\**\*.stories.@(ts|tsx)[39m
+WARN No story files found for the specified pattern: [34mstories\organisms\**\*.stories.@(ts|tsx)[39m
 info Using tsconfig paths for react-docgen
 [36mvite v8.0.3 [32mbuilding client environment for production...[36m[39m
 [2Ktransforming...✓ 85 modules transformed.
@@ -69,9 +69,9 @@ storybook-static/assets/components-BU8WDIpD.js             700.59 kB │ gzip: 2
  [38;5;240m     │[0m                 ──┬─  
  [38;5;240m     │[0m                   ╰─── Use of direct `eval` here.
  [38;5;240m     │[0m 
-[32m✓ built in 620ms[39m
  [38;5;240m     │[0m [38;5;115mHelp[0m: Consider using indirect eval. For more information, check the documentation: https://rolldown.rs/guide/troubleshooting#avoiding-direct-eval
 [38;5;246m──────╯[0m
 [39m
-info => Preview built ([38;2;181;126;229m1.21 s[39m)
+[32m✓ built in 689ms[39m
+info => Preview built ([38;2;181;126;229m1.15 s[39m)
 info => Output directory: C:\Users\ferna\Desktop\Dev\designsystem\apps\storybook\storybook-static
