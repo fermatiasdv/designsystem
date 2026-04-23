@@ -1,9 +1,17 @@
 {
   "name": "@designsystemfdv/primitives",
   "version": "1.0.0",
+  "description": "Design tokens and primitives for @designsystemfdv design system",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/fermatiasdv/designsystem",
+    "directory": "packages/primitives"
+  },
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
   "type": "module",
+  "sideEffects": false,
   "files": [
     "dist"
   ],
@@ -23,6 +31,7 @@
     "test:watch": "vitest"
   },
   "devDependencies": {
-    "typescript": "~5.9.3"
+    "typescript": "~5.9.3",
+    "vitest": "^4.1.2"
   }
 }

@@ -1,9 +1,17 @@
 {
   "name": "@designsystemfdv/button-test",
   "version": "1.0.0",
+  "description": "Button component for @designsystemfdv design system",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/fermatiasdv/designsystem",
+    "directory": "packages/button-test"
+  },
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
   "type": "module",
+  "sideEffects": false,
   "files": [
     "dist"
   ],
@@ -26,14 +34,18 @@
     "@designsystemfdv/primitives": "^1.0.0",
     "@designsystemfdv/utils": "^1.0.0"
   },
+  "peerDependencies": {
+    "react": ">=18"
+  },
   "devDependencies": {
+    "@testing-library/jest-dom": "^6.9.1",
+    "@testing-library/react": "^16.3.2",
     "@types/react": "^19.2.14",
     "@vitejs/plugin-react": "^6.0.1",
+    "jsdom": "^29.0.1",
     "typescript": "~5.9.3",
     "vite": "^8.0.3",
-    "vite-plugin-dts": "^4.5.4"
-  },
-  "peerDependencies": {
-    "react": "^19.2.4"
+    "vite-plugin-dts": "^4.5.4",
+    "vitest": "^4.1.2"
   }
 }

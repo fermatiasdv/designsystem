@@ -1,9 +1,17 @@
 {
   "name": "@designsystemfdv/utils",
   "version": "1.0.0",
+  "description": "Utility functions for @designsystemfdv design system",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/fermatiasdv/designsystem",
+    "directory": "packages/utils"
+  },
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
   "type": "module",
+  "sideEffects": false,
   "files": [
     "dist"
   ],
@@ -27,6 +35,7 @@
   },
   "devDependencies": {
     "@types/react": "^19.2.14",
-    "typescript": "~5.9.3"
+    "typescript": "~5.9.3",
+    "vitest": "^4.1.2"
   }
 }
