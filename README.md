@@ -1,122 +1,198 @@
-# 📦 Design System
+# Design System
 
-Design System construido con **React + TypeScript**, enfocado en crear componentes reutilizables, consistentes y escalables para aplicaciones web.
+Design System construido con **React + TypeScript**, organizado como monorepo con **npm workspaces** y **Turborepo**.
 
-Este proyecto actúa como una **fuente única de verdad (Single Source of Truth)** para UI, permitiendo acelerar el desarrollo y mantener coherencia visual y funcional en múltiples productos.
-
----
-
-## 🚀 Features
-
-- ⚛️ Componentes reutilizables en React  
-- 🧠 Tipado fuerte con TypeScript  
-- 🎨 Tokens de diseño centralizados (colores, spacing, etc.)  
-- 📱 Enfoque responsive (mobile-first)  
-- 🧩 Arquitectura modular (primitives + compositions)  
-- 📚 Integración con Storybook para documentación visual  
-- ⚡ Optimizado para performance  
+Publica paquetes independientes en npm bajo el scope `@designsystemfdv/`.
 
 ---
 
-## 📂 Estructura del proyecto
+## Packages
+
+| Paquete | Descripcion |
+|---------|-------------|
+| `@designsystemfdv/primitives` | Design tokens (colores, tipografia, bordes, sombras) |
+| `@designsystemfdv/utils` | Funciones utilitarias (cn, type checks, style helpers) |
+| `@designsystemfdv/button-test` | Componente Button (React) |
+
+## Apps
+
+| App | Descripcion |
+|-----|-------------|
+| `apps/web` | App demo para consumir los paquetes |
+| `apps/storybook` | Documentacion visual de componentes |
+
+---
+
+## Development
+
+### Requisitos
+
+- Node.js >= 20
+- npm >= 10
+
+### Instalacion
 
 ```bash
-src/
- └── ui/
-      ├── components/     # Componentes principales
-      ├── primitives/     # Componentes base (Button, Input, etc.)
-      ├── hooks/          # Custom hooks
-      ├── utils/          # Helpers
-      ├── icons/          # Íconos
-      ├── layout/         # Layout components
-      └── styles/         # Tokens / estilos globales
-```
-La separación entre primitives y compositions permite escalar sin acoplar lógica ni UI.
-
-📦 Instalación
-
-Clonar el repositorio:
-
 git clone https://github.com/fermatiasdv/designsystem.git
 cd designsystem
-
-Instalar dependencias:
 npm install
-
-
-Levantar entorno de desarrollo:
-npm run dev
-
-Levantar Storybook:
-npm run storybook
-
-🧩 Uso del Design System
-1. Importar componentes
-import { Button } from "@/ui/components/Button";
-2. Usarlos en tu app
-```React
-<Button variant="primary" onClick={handleClick}>
-  Guardar
-</Button>
 ```
 
-🎯 ¿Cómo aprovechar este proyecto?
+### Scripts disponibles
 
-Este design system puede usarse de varias formas:
+```bash
+npm run dev          # Levanta todos los workspaces en modo desarrollo
+npm run build        # Compila todos los paquetes (respeta dependencias)
+npm run test         # Ejecuta tests en todos los paquetes (vitest)
+npm run typecheck    # Valida tipos en todos los paquetes (tsc --noEmit)
+npm run lint         # Ejecuta ESLint donde este configurado
+npm run changeset    # Crea un changeset (para versionado)
+```
 
-✔️ Como librería de componentes
+### Estructura del proyecto
 
-Integrarlo en múltiples proyectos para reutilizar UI consistente.
+```
+designsystem/
+├── packages/
+│   ├── primitives/      # Design tokens
+│   ├── utils/           # Utilidades
+│   └── button-test/     # Componente Button
+├── apps/
+│   ├── web/             # App demo (Vite + React)
+│   └── storybook/       # Storybook
+├── .changeset/          # Configuracion de Changesets
+├── .github/workflows/   # CI/CD pipelines
+├── turbo.json           # Configuracion de Turborepo
+└── package.json         # Root workspace
+```
 
-✔️ Como base de nuevos proyectos
+---
 
-Bootstrapping rápido sin tener que reinventar estilos y componentes.
+## CI/CD
 
-✔️ Como playground de UI
+### CI (Continuous Integration)
 
-Usar Storybook para probar variantes, estados y edge cases.
+**Archivo:** `.github/workflows/ci.yml`
 
-✔️ Como contrato entre diseño y desarrollo
+Se ejecuta en:
+- Push a `main`
+- Pull requests contra `main`
 
+Pipeline:
 
-Centraliza decisiones visuales y evita inconsistencias.
+1. **Install** — `npm ci` con cache de npm
+2. **Lint** — `npm run lint` (ESLint via Turbo)
+3. **Typecheck** — `npm run typecheck` (TypeScript via Turbo)
+4. **Test** — `npm run test` (Vitest via Turbo)
+5. **Build** — `npm run build` (Turbo, respetando dependencias entre paquetes)
 
-🧱 Filosofía
-Composición > configuración
-Consistencia > customización extrema
-Simplicidad > abstracciones innecesarias
-Performance first
+Si cualquier paso falla, el pipeline falla y bloquea el merge.
 
-⚙️ Tecnologías
-React
-TypeScript
-CSS Modules / Styled strategy
-Storybook
-Vite
+### CD (Continuous Delivery)
 
-📐 Convenciones
-Componentes desacoplados y reutilizables
-Props explícitas (evitar "magic props")
-Separación de lógica y presentación
-Naming consistente (variant, size, etc.)
+**Archivo:** `.github/workflows/release.yml`
 
-🧪 Testing
-npm run test
+Se ejecuta en push a `main`. Usa [Changesets](https://github.com/changesets/changesets) para:
 
-📈 Roadmap
- Mejorar cobertura de componentes
- Sistema de theming
- Mejorar accesibilidad (a11y)
- Documentación avanzada en Storybook
- Publicación como paquete npm
- 
-🤝 Contribución
-Fork del repo
-Crear branch (feature/nueva-feature)
-Commit
-Pull Request
-📄 Licencia
+1. **Detectar changesets pendientes** — Si hay changesets sin publicar, crea un PR automatico "Version Packages" con:
+   - Bump de versiones en cada `package.json`
+   - Actualizacion del `CHANGELOG.md` de cada paquete
+2. **Publicar a npm** — Cuando se mergea el PR de versionado, publica automaticamente los paquetes con cambios a npm.
 
-Licencia: MIT
+---
 
-PR, dudas y si querés que lo desarrolle para tu empresa, enviame un mail a fernandomatiasdv@gmail.com
+## Publishing
+
+### Como crear un changeset
+
+Cada vez que hagas un cambio que deba reflejarse en una nueva version de un paquete:
+
+```bash
+npx changeset
+```
+
+Esto te pregunta:
+1. Que paquetes fueron afectados
+2. Tipo de cambio: `patch`, `minor` o `major`
+3. Descripcion del cambio
+
+Se crea un archivo en `.changeset/` que se commitea junto con tu PR.
+
+**Ejemplo de flujo completo:**
+
+```bash
+# 1. Haces tus cambios en el codigo
+# 2. Creas el changeset
+npx changeset
+
+# 3. Commiteas todo (codigo + changeset)
+git add .
+git commit -m "feat: add new variant to Button"
+
+# 4. Abris PR a main
+# 5. Al mergear, el bot de Changesets crea un PR de versionado
+# 6. Al mergear ese PR, se publica automaticamente a npm
+```
+
+### Publicacion manual (opcional)
+
+Si necesitas publicar manualmente:
+
+```bash
+npm run version-packages   # Aplica las versiones de los changesets
+npm run release             # Build + publish a npm
+```
+
+---
+
+## Versioning
+
+Este proyecto usa [Semantic Versioning](https://semver.org/):
+
+| Tipo | Version | Cuando usarlo |
+|------|---------|---------------|
+| `patch` | 1.0.0 -> 1.0.1 | Bug fixes, cambios internos sin impacto en la API publica |
+| `minor` | 1.0.0 -> 1.1.0 | Nueva funcionalidad compatible con versiones anteriores |
+| `major` | 1.0.0 -> 2.0.0 | Breaking changes (cambio de API, remover props, etc.) |
+
+### Breaking changes
+
+Cuando un cambio rompe la API publica de un paquete:
+
+1. Al crear el changeset, seleccionar `major`
+2. Describir claramente que cambio y como migrar
+3. El CHANGELOG generado automaticamente incluira esta informacion
+
+### Dependencias internas
+
+Los paquetes internos (`primitives` -> `utils` -> `button-test`) se actualizan automaticamente como `patch` cuando cambian sus dependencias internas. Esto esta configurado en `.changeset/config.json` con `updateInternalDependencies: "patch"`.
+
+---
+
+## Secrets necesarios
+
+Para que el CD funcione, configurar en **GitHub > Settings > Secrets and variables > Actions**:
+
+| Secret | Descripcion | Como obtenerlo |
+|--------|-------------|----------------|
+| `NPM_TOKEN` | Token de publicacion de npm | [npmjs.com](https://www.npmjs.com/) > Access Tokens > Generate New Token (type: Automation) |
+
+`GITHUB_TOKEN` se provee automaticamente por GitHub Actions.
+
+---
+
+## Tech Stack
+
+- **React 19** + **TypeScript 5.9**
+- **Vite 8** (build de componentes y apps)
+- **Turborepo** (orquestacion del monorepo)
+- **Vitest** (testing)
+- **Storybook 8** (documentacion visual)
+- **Changesets** (versionado y publicacion)
+- **GitHub Actions** (CI/CD)
+
+---
+
+## Licencia
+
+MIT
