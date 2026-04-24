@@ -1,0 +1,12 @@
+branch=$(git symbolic-ref HEAD 2>/dev/null | sed 's|refs/heads/||')
+
+if [ "$branch" = "main" ]; then
+  echo ""
+  echo "  ERROR: pushing directly to 'main' is not allowed."
+  echo "  Create a branch and open a Pull Request instead:"
+  echo ""
+  echo "    git checkout -b feat/your-change"
+  echo "    git push origin feat/your-change"
+  echo ""
+  exit 1
+fi
